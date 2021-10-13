@@ -1,10 +1,18 @@
 locals {
   redisgeek_config = {
-    client_certificate = azurerm_kubernetes_cluster.redisgeek.kube_config.0.client_certificate
-    kube_config        = azurerm_kubernetes_cluster.redisgeek.kube_config_raw
+    kube_config_raw = azurerm_kubernetes_cluster.redisgeek.kube_config_raw
+    kube_config     = azurerm_kubernetes_cluster.redisgeek.kube_config
   }
   rg           = azurerm_resource_group.redisgeek.name
   cluster_name = azurerm_kubernetes_cluster.redisgeek.name
+}
+
+output "resource_group" {
+  value = azurerm_resource_group.redisgeek.name
+}
+
+output "cluster_name" {
+  value = azurerm_kubernetes_cluster.redisgeek.name
 }
 
 output "redisgeek_config" {

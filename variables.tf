@@ -1,13 +1,3 @@
-variable "acre_sku" {
-  type    = string
-  default = "Enterprise_E10-2"
-}
-
-variable "azure_redis_enterprise_database_clustering_policy" {
-  type    = string
-  default = "EnterpriseCluster"
-}
-
 variable "location" {
   type    = string
   default = "centralus"

@@ -6,7 +6,7 @@ resource "azurerm_kubernetes_cluster" "redisgeek" {
 
   default_node_pool {
     name       = "default"
-    node_count = 5
+    node_count = 3
     vm_size    = "Standard_D4_v4"
   }
 

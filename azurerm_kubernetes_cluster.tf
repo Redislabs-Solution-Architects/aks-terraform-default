@@ -14,4 +14,10 @@ resource "azurerm_kubernetes_cluster" "redisgeek" {
     type = "SystemAssigned"
   }
 
+  addon_profile {
+    http_application_routing {
+      enabled = true
+    }
+  }
+
 }

@@ -28,7 +28,7 @@ jobs:
 
       - name: Terraform Init Upgrade
         id: init
-        run: terraform init -upgrade
+        run: terraform init -upgrade -backend-config=redisgeek.hcl
 
       - name: Terraform Validate
         id: validate

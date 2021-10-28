@@ -1,8 +1,9 @@
 resource "azurerm_kubernetes_cluster" "redisgeek" {
-  name                = format("redisgeek-%s", random_string.aks_cluster_name.result)
+  name                = format("redisgeek-%s", random_string.aks_cluster_name.id)
   location            = azurerm_resource_group.redisgeek.location
   resource_group_name = azurerm_resource_group.redisgeek.name
-  dns_prefix          = random_string.aks_cluster_name.result
+  dns_prefix          = random_string.aks_cluster_name.id
+  tags                = merge(var.tags, { owner = data.azurerm_client_config.current.id })
 
   default_node_pool {
     name       = "default"
